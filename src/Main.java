@@ -2,24 +2,28 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Main {
-        public static void main(String[] args) {
-            HashSet<String> set1 = new HashSet<>();
-            set1.add("Красный" );
-            set1.add("Зеленый" );
-            set1.add("Синий" );
+    public static void main(String[] args) {
+        HashSet<Integer> set3 = new HashSet<>();
+        set3.add(4);
+        set3.add(10);
+        set3.add(20);
+        set3.add(6);
+        set3.add(35);
 
-            HashSet<String> set2 = new HashSet<>();
-            set2.add("Синий" );
-            set2.add("Желтый" );
-            set2.add("Красный" );
+        HashSet<Integer> overFifteen = new HashSet<>(findOverFifteen(set3));
+        System.out.println(overFifteen);
 
-            HashSet<String> commonColors = new HashSet<>(findCommon(set1, set2));
-            System.out.println("Общие цвета: " + commonColors);
-                }
 
-            public static HashSet<String> findCommon(HashSet<String> set1, HashSet<String> set2){
-                HashSet<String> commonSet = new HashSet<>(set1);
-                commonSet.retainAll(set2);
-                return commonSet;
+    }
+
+    public static HashSet<Integer> findOverFifteen(HashSet<Integer> set3) {
+        for (Integer num : set3) {
+            if (num > 15 && num % 2 == 0) {
+                System.out.println(num);
+            } else {
+                System.out.println(num / 2);
+            }
         }
+        return set3;
+    }
 }
